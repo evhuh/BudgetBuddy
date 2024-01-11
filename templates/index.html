@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+
+{% block main %}
+    <form action="/index" method="post">
+        <!DOCTYPE html>
+        <html lang="en">
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+                <title>Dashboard</title>
+            <!-- Additional styles or scripts can be added here -->
+            </head>
+            <body class="container mt-5">
+
+            <!-- Hello Message -->
+            <div clss="mb-4">
+                <h2>Hello, {{ user }}!</h2>
+            </div>
+
+            <hr style="border-top: 2px solid green;">
+
+            <!-- Amount left + Warning -->
+                <div clss="mb-4">
+                    <h4>Amount Left: {{ usd(left) }}</h4>
+                    <h4>Status: {{ status }}</h4>
+                </div>
+
+                <hr style="border-top: 2px solid green;">
+
+            <!-- Budget and Spending Information -->
+                <div class="mb-4">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Category</th>
+                                <th scope="col">Money Spent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in table %}
+                                <tr>
+                                    <td>{{ row.category }}</td>
+                                    <td>{{ usd(row.amount) }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <hr style="border-top: 2px solid green;">
+
+                    <!-- Bar: Percent of budget spent -->
+                    <div class="container-fluid">
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <h4>Percent of Budget Spent:</h7>
+                                <h4>{{ budgetSpent }}%</h4>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width:{{ budgetSpent }}%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </form>
+            </body>
+
+        </html>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}
+   Settings
+{% endblock %}
+
+
+{% block main %}
+<head>
+      <!-- Bootstrap -->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <title>Restart</title>
+</head>
+<form method="POST">
+      <h1>RESTART</h1>
+      <h3>Please be aware that this will DELETE all of your data. This is irreversible.</h3>
+      <button name="remove" type="submit" class="btn btn-success">Remove</button>
+</form>
+
+
+</html>
+{% endblock %}
